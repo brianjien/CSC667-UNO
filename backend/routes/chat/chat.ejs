@@ -1,0 +1,23 @@
+<!-- backend/routes/chat/chat.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1>Chatroom</h1>
+    <div id="chat-messages"></div>
+
+    <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message">
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+</body>
+</html>

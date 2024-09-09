@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <form class="signup-form" method="post" action="/register">
+        <h1 class="form-title">Register</h1>
+
+        <label for="Fname">First Name:</label>
+        <input id="Fname" name="firstname" type="text" placeholder="First Name" required>
+
+
+        <label for="Lname">Last Name:</label>
+        <input id="Lname" name="lastname" type="text" placeholder="Last Name" required>
+
+
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text" placeholder="Username" required>
+
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" placeholder="Email" required>
+
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" placeholder="Password" minlength="8" required>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="/login.html">Login</a></p>
+        </div>
+        <input type="submit" value="Register">
+        <button onclick="window.location.href='/';" class="cancel-button">Cancel</button>
+        
+    </form>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Game</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="uno-body">
+    <div class="container">
+        <h1 class="uno-title">UNO Game</h1>
+        <h2 id="turnDisplay">Turn: Player 1</h2>
+        <div id="game">
+            <div id="players">
+                <div class="player" id="player2">
+                    <div>Player 2: <span id="player2-name"></span></div>
+                    <div class="hand" id="hand2"></div>
+                </div>
+                <div id="discard" class="card"></div>
+                <div id="drawArea" class="card" onclick="handleDrawCard()">Draw</div>
+                <div id="colorSelection" style="display: none;">
+                    <button class="color-btn" id="redBtn" style="background-color: red;"></button>
+                    <button class="color-btn" id="greenBtn" style="background-color: green;"></button>
+                    <button class="color-btn" id="blueBtn" style="background-color: blue;"></button>
+                    <button class="color-btn" id="yellowBtn" style="background-color: yellow;"></button>
+                </div>
+                <div class="player" id="player1">
+                    <div>Player 1: <span id="player1-name"></span></div>
+                    <div class="hand" id="hand1"></div>
+                </div>
+            </div>
+        </div>
+        <div id="chatroom">
+            <h2>Chatroom <span id="closeBtn">&times;</span></h2>
+            <ul id="messages"></ul>
+            <form id="form" action="">
+                <input id="input" type="text" placeholder="Type your message..." autocomplete="off">
+                <button id="sendBtn" type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+        <button id="chatBtn" class="actionBtn">Open Chatroom</button>
+    </div>
+    <script src="/socket.io-client/dist/socket.io.js"></script>
+    <script src="/js/game.js"></script>
+</body>
+</html>

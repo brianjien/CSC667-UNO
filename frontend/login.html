@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <form class="login-form" method="post" action="/login">
+        <h1 class="form-title">Login</h1>
+
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text" placeholder="Username" required>
+        
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" placeholder="Password" required>
+
+        <br>
+        <br>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="/registration.html">Sign up</a></p>
+        </div>
+        <input type="submit" value="Login">
+        <button onclick="window.location.href='/';" class="cancel-button">Cancel</button>
+    </form>   
+</html>

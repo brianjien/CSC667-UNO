@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lobby</title>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div id="gameContainer">
+            <div id="lobby">
+                <h2>Lobby</h2>
+                <% if (username) { %>
+                    <div class="user" id="currentUser"></div>
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <div class="username">
+                            <%= username %>
+                        </div>
+                        <div class="status">Online</div>
+                    </div>
+                    <div id="userRoomsContainer">
+                        <h3>Your Rooms</h3>
+                        <ul id="userRoomsList"></ul>
+                    </div>
+            </div>
+        </div>
+        <% } %>
+
+        <img id="backgroundImg" src="/css/uno.png" alt="Background Image">
+        <div id="gameBoard">
+            <h2>Uno Game Board</h2>
+            <div id="room_container">
+                <button id="createRoomBtn" class="actionBtn_G">Create Room</button>
+                <button id="joinRoomBtn" class="actionBtn_G">Join Room</button>
+            </div>
+        </div>
+        <div id="chatroom">
+            <h2>
+                Chatroom
+                <span id="closeBtn">&times;</span>
+            </h2>
+            <ul id="messages"></ul>
+            <form id="form" action="">
+                <input id="input" type="text" placeholder="Type your message..." autocomplete="off">
+                <button id="sendBtn" type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+        <button id="chatBtn" class="actionBtn">Open Chatroom</button>
+        <% if (username) { %>
+            <button id="loginBtn" class="actionBtn" onclick="window.location.href='/logout';">Logout</button>
+        <% } else { %>
+            <button id="loginBtn" class="actionBtn" onclick="window.location.href='/login.html';">Login</button>
+        <% } %>
+        <div id="popupCreateRoomModal" class="modal">
+            <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Create Room</h2>
+                    <label for="maxPlayers">Max Players:</label>
+                    <select id="maxPlayers" name="maxPlayers">
+                        <option value="2">2 Players</option>
+                    </select>
+                    <button id="createRoomPlayBtn" type="button">Create Room</button>
+            </div>
+        </div>
+
+        <div id="popupJoinRoomModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Join Room</h2>
+                <form id="joinRoomForm">
+                    <div class="form-group">
+                        <label for="roomCode">Invitation Code:</label>
+                        <input type="text" id="roomCode" name="roomCode" placeholder="Enter invitation code" required>
+                    </div>
+                    <button id="joinRoomPlayBtn" type="button">Join Room</button>
+                </form>
+            </div>
+        </div>
+        <script src="/socket.io-client/dist/socket.io.js"></script>
+        <script src="/js/lobby.js"></script>
+    </body>
+
+</html>

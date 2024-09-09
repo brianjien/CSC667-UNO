@@ -1,0 +1,562 @@
+body,
+ul {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#gameContainer {
+    width: 95%;
+    max-width: 1300px;
+    height: 90%;
+    max-height: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#backgroundImg {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+#lobby {
+  width: 250px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  margin-right: 20px;
+  z-index: 1;
+  opacity: 0.8;
+}
+#lobby h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#lobby .user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#lobby .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  margin-right: 10px;
+}
+#lobby .username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#lobby .status {
+  color: #4caf50;
+}
+#gameBoard {
+  width: 40%;
+  height: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  z-index: 1;
+  opacity: 0.9;
+}
+#gameBoard h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#createRoomBtn,
+#joinRoomBtn {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+}
+#createRoomBtn:hover,
+#joinRoomBtn:hover {
+  background-color: #45a045;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal.active {
+  display: block;
+  opacity: 1;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 1000px;
+  border-radius: 10px;
+  position: relative;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+}
+.modal-content.active {
+  transform: translateY(0);
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #45a049;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#playBtn {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#playBtn:hover {
+  background-color: #45a049;
+}
+#chatroom {
+    display: none;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#chatroom.active {
+  display: block;
+}
+#chatroom h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  height: 300px;
+}
+#messages li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+#messages .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff;
+  margin-right: 10px;
+}
+#messages .message-content {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+}
+.current-user-message .message-content {
+  background-color: #e8d4d4;
+}
+.other-user-message .message-content {
+  background-color: #d4e8d4;
+}
+.timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+#form {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+#input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+#sendBtn {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+#sendBtn:hover {
+    background-color: #0056b3;
+}
+#chatBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+#chatBtn:hover {
+  background-color: #0056b3;
+}
+#loginBtn {
+  display: block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999;
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 1000;
+}
+#loginBtn:hover {
+  background-color: #0056b3;
+}
+#closeBtn {
+  cursor: pointer;
+  color: #888;
+}
+#closeBtn:hover {
+  color: #555;
+}
+.chat-messages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.chat-message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #eee;
+  display: flex; 
+}
+.user-id,
+.message-content {
+  padding: 5px;
+}
+.user-id {
+  font-weight: bold;
+  color: #007bff;
+  margin-right: 10px; 
+}
+.message-content {
+  flex-grow: 1;
+  background-color: #f5f5f5; 
+  padding: 5px;
+  border-radius: 5px; 
+}
+.timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+.message {
+  margin-bottom: 5px;
+}
+current-user-message .message-content {
+  background-color: #d4e8d4;
+}
+other-user-message .message-content {
+  background-color: #e8d4d4;
+}
+body.uno-body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.uno-title {
+  text-align: center;
+  color: #333;
+}
+.player {
+  margin-bottom: 20px;
+}
+
+.player h2 {
+  margin-bottom: 10px;
+  color: #666;
+}
+#discard,
+#drawArea {
+  width: 80px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+#drawArea {
+  width: 80px;
+  height: 100px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#discard.card,
+#drawArea.card {
+  margin: 0 auto;
+}
+#drawArea {
+  margin-right: 90px;
+}
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 100px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+#discard {
+  margin-top: 20px;
+  text-align: center;
+}
+#discard .card {
+  margin: 0 auto;
+}
+.card-back {
+  background-color: black;
+  color: black;
+}
+.uno-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.color-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+#gameRoomContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+.room-info {
+  margin-top: 20px;
+}
+.room-info p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #555;
+}
+.room-info p strong {
+  color: #333;
+}
+#readyBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#countdown {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+}
+.player-box {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8f5e9;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.player-box.active {
+  opacity: 1;
+  background-color: #4caf50; 
+}
+#status {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+#player1, #player2 {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+.card {
+  width: 100px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  border-radius: 10px; /* Optional: add some border radius */
+  display: inline-block;
+  text-align: center;
+  line-height: 150px; /* Vertically center text, will not affect the image */
+  font-size: 24px;
+  margin: 5px;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-back {
+  background-color: #444; /* Example color for the back of the card */
+  background-size: cover;
+}
+
+
+
+#discard {
+  margin: 0 auto; /* Center the discard pile */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+}
+

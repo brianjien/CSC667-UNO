@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Room</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="gameRoomContainer">
+        <h2>Welcome to the Game Room</h2>
+        <div class="room-info">
+            <p><strong>Username:</strong> <span id="username"><%= username %></span></p>
+            <p><strong>Invitation Code:</strong> <span id="invitationCode"></span></p>
+        </div>
+        <div id="player1">Player 1: <span id="player1-name"></span></div>
+        <div id="player2">Player 2: <span id="player2-name"></span></div>
+        <div id="status"></div>
+        <button id="readyBtn">Ready</button>
+        <div id="countdown"></div>
+    </div>
+    <script src="/socket.io-client/dist/socket.io.js"></script>
+    <script src="/js/room.js"></script>
+</body>
+</html>
