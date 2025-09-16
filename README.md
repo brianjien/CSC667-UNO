@@ -80,3 +80,11 @@ We will use the pg-promise package to communicate with our database.
 
 
 The server should now be running and accessible at http://localhost:3001.
+
+Provide a visual representation of the operational process:
+<img width="1470" height="921" alt="Screenshot 2024-09-09 at 6 10 58 PM" src="https://github.com/user-attachments/assets/5bdcd653-f4d5-4399-8a75-6527667cbce8" />
+<img width="1470" height="922" alt="Screenshot 2024-09-09 at 6 10 37 PM" src="https://github.com/user-attachments/assets/b616d501-a57a-40cc-8c6c-37c890d4de37" />
+<img width="770" height="926" alt="Screenshot 2024-09-09 at 6 10 16 PM" src="https://github.com/user-attachments/assets/6d015e36-6627-4a1d-ab29-4e6e25bcc3fe" />
+<img width="1465" height="925" alt="Screenshot 2024-09-09 at 6 09 53 PM" src="https://github.com/user-attachments/assets/be59373b-0d54-4def-9077-eaac344d578d" />
+<img width="1470" height="882" alt="Screenshot 2024-09-09 at 6 06 17 PM" src="https://github.com/user-attachments/assets/73752a4f-5233-49a5-9e2b-0596fd0b355e" />
+
